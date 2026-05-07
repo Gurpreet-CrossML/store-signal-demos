@@ -53,8 +53,10 @@ export default function DashboardClient() {
     }
 
     useEffect(() => {
-        fetchStores();
-    });
+        if (stores.length === 0) {
+            fetchStores();
+        }
+    }, [stores]);
 
     if (loading) {
         return (
